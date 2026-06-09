@@ -384,6 +384,7 @@ GameObject:
   - component: {fileID: 273599326}
   - component: {fileID: 273599325}
   - component: {fileID: 273599324}
+  - component: {fileID: 273599327}
   m_Layer: 0
   m_Name: ball4_0
   m_TagString: Untagged
@@ -401,7 +402,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -0.97, z: 0}
-  m_LocalScale: {x: 0.55452, y: 0.55452, z: 0.55452}
+  m_LocalScale: {x: 0.49962255, y: 0.49962255, z: 0.49962255}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1361387013}
@@ -571,6 +572,18 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &273599327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 273599322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3195d4f98041aeb419790b6de2d80dec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Ball
 --- !u!4 &318442593 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4483384197379516182, guid: 9c517601e9eb64f41844bfd06efa6b13, type: 3}
@@ -2490,8 +2503,8 @@ Transform:
   m_GameObject: {fileID: 1096557432}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -6.49, z: 0}
-  m_LocalScale: {x: 0.57307196, y: 0.3326056, z: 0.59695}
+  m_LocalPosition: {x: 0, y: -6.5, z: 0}
+  m_LocalScale: {x: 0.54441833, y: 0.38582247, z: 0.59695}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2112335052}
@@ -2554,10 +2567,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_Mass: 0.5
+  m_LinearDamping: 5
+  m_AngularDamping: 0
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -2568,7 +2581,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 6
 --- !u!212 &1096557436
 SpriteRenderer:
   serializedVersion: 2
@@ -2640,7 +2653,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 883e7a66d6165f240aee291e1e3ba1c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerPaddle
-  speed: 30
+  speed: 35
 --- !u!1 &1102288729
 GameObject:
   m_ObjectHideFlags: 0
