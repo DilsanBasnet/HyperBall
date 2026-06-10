@@ -1,0 +1,63 @@
+using UnityEngine;
+
+public class Brick : MonoBehaviour
+{
+    public int BrickHealth { get; private set;}
+
+    public SpriteRenderer spriteRenderer { get; private set;}
+
+    public Sprite[] states;
+
+    public bool unbreakable;
+
+    private void Awake()
+    {
+        this.spriteRenderer = GetComponent<SpriteRenderer>();
+        
+    }
+    private void Start()
+    {
+        if(!this.unbreakable)
+        {
+            this.BrickHealth = this.states.Length;
+            if(this.states.Length > 0 )
+            {
+                this.spriteRenderer.sprite = this.states[this.BrickHealth - 1];
+            }
+        }
+        else
+        {
+            this.BrickHealth = 100;
+        }
+    }
+
+    private void Hit()
+    {
+        if(this.unbreakable)
+        {
+            return;
+        }
+        this.BrickHealth--;
+
+        if(this.BrickHealth <= 0)
+        {
+            this.gameObject.SetActive(false);
+        }
+        else if (this.states.Length > 0)
+        {
+             this.spriteRenderer.sprite = this.states[this.BrickHealth -1];
+        
+        }   
+    }
+    
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.CompareTag("Ball") || collision.gameObject.name.Contains("Ball"))
+        {
+            Hit();
+        }
+    }
+
+
+
+}

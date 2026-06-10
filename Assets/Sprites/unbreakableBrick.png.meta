@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 9f0567d54bda7f44a9ce6f5dd09cd586
+guid: 3b8204437519c6444bbfb0352109be4e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5734607027616390777
-    second: grayBrick_0
+      213: 3879944513597193035
+    second: unbreakableBrick_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: grayBrick_0
+      name: unbreakableBrick_0
       rect:
         serializedVersion: 2
-        x: 141
-        y: 8
-        width: 253
-        height: 137
+        x: 20
+        y: 6
+        width: 934
+        height: 424
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7816778aa459a60b0800000000000000
-      internalID: -5734607027616390777
+      spriteID: b4bbf217af458d530800000000000000
+      internalID: 3879944513597193035
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      grayBrick_0: -5734607027616390777
+      unbreakableBrick_0: 3879944513597193035
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -60,6 +60,7 @@ public class PlayerPaddle : MonoBehaviour
             
             ball.rigidbody.linearVelocity = Rotation * Vector2.up * ball.rigidbody.linearVelocity.magnitude;
         } 
+        
     }
 
 }

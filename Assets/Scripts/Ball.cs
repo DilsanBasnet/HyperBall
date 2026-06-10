@@ -26,5 +26,6 @@ public class Ball : MonoBehaviour
 
         this.rigidbody.AddForce(force.normalized * this.speed); 
     }
+    
 
 }
