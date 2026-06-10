@@ -14,5 +14,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levle2.unity
     guid: f7f636417b0f4474b962ced06832c0ba
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: 48e087f2f480fda4bbdd6fccaf444336
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}

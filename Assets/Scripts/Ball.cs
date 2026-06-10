@@ -26,6 +26,11 @@ public class Ball : MonoBehaviour
 
         this.rigidbody.AddForce(force.normalized * this.speed); 
     }
-    
+    public void ResetBall()
+    {
+        this.transform.position = Vector2.zero;
+        this.rigidbody.linearVelocity = Vector2.zero;
+        Invoke(nameof(RandomDelay), 1f);
+    }
 
 }

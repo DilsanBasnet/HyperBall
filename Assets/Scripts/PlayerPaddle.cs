@@ -63,4 +63,10 @@ public class PlayerPaddle : MonoBehaviour
         
     }
 
+    public void ResetPaddle()
+    {
+        this.transform.position = new Vector2(0f, this.transform.position.y);
+        this.rigidbody.position = Vector2.zero;
+    }
+
 }

@@ -10,6 +10,8 @@ public class Brick : MonoBehaviour
 
     public bool unbreakable;
 
+    public int Point = 1;
+
     private void Awake()
     {
         this.spriteRenderer = GetComponent<SpriteRenderer>();
@@ -48,6 +50,7 @@ public class Brick : MonoBehaviour
              this.spriteRenderer.sprite = this.states[this.BrickHealth -1];
         
         }   
+        FindAnyObjectByType<GameManager>().Hit(this);
     }
     
     private void OnCollisionEnter2D(Collision2D collision)
@@ -57,6 +60,7 @@ public class Brick : MonoBehaviour
             Hit();
         }
     }
+
 
 
 
