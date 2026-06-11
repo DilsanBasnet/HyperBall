@@ -2139,7 +2139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &582645095
 Transform:
   m_ObjectHideFlags: 0
@@ -2890,7 +2890,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &860152072
 Transform:
   m_ObjectHideFlags: 0
@@ -3595,8 +3595,8 @@ Transform:
   m_GameObject: {fileID: 1096557432}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -6.4, z: 0}
-  m_LocalScale: {x: 0.46289834, y: 0.27570084, z: 0.4829803}
+  m_LocalPosition: {x: 0, y: -6.2, z: 0}
+  m_LocalScale: {x: 0.47146195, y: 0.3903924, z: 0.4829803}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2112335052}
@@ -3745,7 +3745,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 883e7a66d6165f240aee291e1e3ba1c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerPaddle
-  speed: 44
+  speed: 46
   MaxBallBounceAngles: 75
 --- !u!1001 &1129615075
 PrefabInstance:
@@ -4330,7 +4330,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1374278863
 Transform:
   m_ObjectHideFlags: 0
@@ -4707,7 +4707,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1471062617
 Transform:
   m_ObjectHideFlags: 0

@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 
     public Ball ball { get; private set;}
     public PlayerPaddle paddle {get; private set;}
+    public Brick[] bricks { get; private set;}
  private void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
@@ -38,13 +39,31 @@ public class GameManager : MonoBehaviour
     {
         this.ball = FindAnyObjectByType<Ball>() ;
         this.paddle = FindAnyObjectByType<PlayerPaddle>();
-        
+        this.bricks = FindObjectsByType<Brick>();
            }
 
     public void Hit(Brick brick)
     {
         this.score += brick.Point;
+        if(Cleared())
+        {
+            LevelLoad(this.level + 1);
+        }
     }
+
+    private bool Cleared()
+    {
+       for (int i = 0; i < this.bricks.Length; i++)
+        {
+            if(this.bricks[i].gameObject.activeInHierarchy && !this.bricks[i].unbreakable)
+            {
+                return false;
+            }
+            
+        }
+         return true;
+    }
+
     public void Death()
     {
         this.lifes--;

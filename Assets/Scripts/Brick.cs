@@ -19,18 +19,7 @@ public class Brick : MonoBehaviour
     }
     private void Start()
     {
-        if(!this.unbreakable)
-        {
-            this.BrickHealth = this.states.Length;
-            if(this.states.Length > 0 )
-            {
-                this.spriteRenderer.sprite = this.states[this.BrickHealth - 1];
-            }
-        }
-        else
-        {
-            this.BrickHealth = 100;
-        }
+       ResetBrick();
     }
 
     private void Hit()
@@ -58,6 +47,22 @@ public class Brick : MonoBehaviour
         if(collision.gameObject.CompareTag("Ball") || collision.gameObject.name.Contains("Ball"))
         {
             Hit();
+        }
+    }
+    public void ResetBrick()
+    {
+        this.gameObject.SetActive(true);
+        if(!this.unbreakable)
+        {
+            this.BrickHealth = this.states.Length;
+            if(this.states.Length > 0 )
+            {
+                this.spriteRenderer.sprite = this.states[this.BrickHealth - 1];
+            }
+        }
+        else
+        {
+            this.BrickHealth = 100;
         }
     }
 
