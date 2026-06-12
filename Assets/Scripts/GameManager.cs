@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class GameManager : MonoBehaviour
     public Ball ball { get; private set;}
     public PlayerPaddle paddle {get; private set;}
     public Brick[] bricks { get; private set;}
+    public TextMeshProUGUI scoreText;
  private void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
@@ -25,6 +27,7 @@ public class GameManager : MonoBehaviour
     {
         this.score = 0;
         this.lifes = 3;
+        UpdateScoreUI();
         LevelLoad(1);
 
     }
@@ -32,23 +35,33 @@ public class GameManager : MonoBehaviour
     {
         this.level = level;
         SceneManager.LoadScene("Level" + level);
-
-        
     }
     private void OnLoadedLevel(Scene scene, LoadSceneMode mode)
     {
         this.ball = FindAnyObjectByType<Ball>() ;
         this.paddle = FindAnyObjectByType<PlayerPaddle>();
         this.bricks = FindObjectsByType<Brick>();
-           }
+
+        this.scoreText = GameObject.Find("ScoreText")?.GetComponent<TextMeshProUGUI>();
+        UpdateScoreUI(); }
 
     public void Hit(Brick brick)
     {
         this.score += brick.Point;
+        UpdateScoreUI();
         if(Cleared())
         {
             LevelLoad(this.level + 1);
         }
+    }
+
+    private void UpdateScoreUI()
+    {
+        if(this.scoreText != null)
+        {
+            this.scoreText.text = "Score: " + this.score;
+        }
+    
     }
 
     private bool Cleared()
@@ -86,4 +99,5 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene("GameOver");
     }
+    
 }
