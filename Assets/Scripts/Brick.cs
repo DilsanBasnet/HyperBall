@@ -34,14 +34,13 @@ public class Brick : MonoBehaviour
         {
             this.gameObject.SetActive(false);
             FindAnyObjectByType<GameManager>().Hit(this);
+            return;
         }
         else if (this.states.Length > 0)
         {
              this.spriteRenderer.sprite = this.states[this.BrickHealth -1];
         
-        }   
-        FindAnyObjectByType<GameManager>().Hit(this);
-    }
+        }   }
     
     private void OnCollisionEnter2D(Collision2D collision)
     {

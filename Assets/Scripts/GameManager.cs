@@ -35,7 +35,8 @@ public class GameManager : MonoBehaviour
        this.paddle = FindAnyObjectByType<PlayerPaddle>();
        this.ball = FindAnyObjectByType<Ball>();
        this.bricks = FindObjectsByType<Brick>(FindObjectsInactive.Exclude);
-       this.scoreText = GameObject.Find("ScoreText")?.GetComponent<TextMeshProUGUI>();
+       
+
        UpdateScoreUI();
     }
 
@@ -59,7 +60,7 @@ public class GameManager : MonoBehaviour
 
     public void Hit(Brick brick)
     {
-        this.score += brick.Point;
+        this.score += 1;
         UpdateScoreUI();
 
         if(Cleared())
@@ -70,6 +71,10 @@ public class GameManager : MonoBehaviour
 
     private void UpdateScoreUI()
     {
+        if(this.scoreText == null)
+        {
+            this.scoreText = GameObject.Find("ScoreText")?.GetComponent<TextMeshProUGUI>();
+        }
         if(this.scoreText != null)
         {
             this.scoreText.text = "Score: " + this.score;
@@ -84,7 +89,7 @@ public class GameManager : MonoBehaviour
 
        for (int i = 0; i < this.bricks.Length; i++)
         {
-            if(this.bricks[i].gameObject.activeInHierarchy && !this.bricks[i].unbreakable)
+            if(this.bricks[i] != null && this.bricks[i].gameObject.activeInHierarchy && !this.bricks[i].unbreakable)
             {
                 return false;
             }
