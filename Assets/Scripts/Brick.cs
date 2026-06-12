@@ -33,6 +33,7 @@ public class Brick : MonoBehaviour
         if(this.BrickHealth <= 0)
         {
             this.gameObject.SetActive(false);
+            FindAnyObjectByType<GameManager>().Hit(this);
         }
         else if (this.states.Length > 0)
         {

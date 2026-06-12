@@ -4,6 +4,7 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager Instance{get; private set;}
     public int lifes = 3;
     public int score = 0;
     public int level = 1;
@@ -11,16 +12,31 @@ public class GameManager : MonoBehaviour
     public Ball ball { get; private set;}
     public PlayerPaddle paddle {get; private set;}
     public Brick[] bricks { get; private set;}
+
     public TextMeshProUGUI scoreText;
  private void Awake()
     {
+       if(Instance != null && Instance != this)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
+        Instance = this;
         DontDestroyOnLoad(this.gameObject);
         SceneManager.sceneLoaded += OnLoadedLevel;
 
     }
     private void Start()
     {
-        GameNew();
+        FindSceneComponents();
+    }
+    private void FindSceneComponents()
+    {
+       this.paddle = FindAnyObjectByType<PlayerPaddle>();
+       this.ball = FindAnyObjectByType<Ball>();
+       this.bricks = FindObjectsByType<Brick>(FindObjectsInactive.Exclude);
+       this.scoreText = GameObject.Find("ScoreText")?.GetComponent<TextMeshProUGUI>();
+       UpdateScoreUI();
     }
 
     private void GameNew()
@@ -38,17 +54,14 @@ public class GameManager : MonoBehaviour
     }
     private void OnLoadedLevel(Scene scene, LoadSceneMode mode)
     {
-        this.ball = FindAnyObjectByType<Ball>() ;
-        this.paddle = FindAnyObjectByType<PlayerPaddle>();
-        this.bricks = FindObjectsByType<Brick>();
-
-        this.scoreText = GameObject.Find("ScoreText")?.GetComponent<TextMeshProUGUI>();
-        UpdateScoreUI(); }
+        FindSceneComponents();
+    }
 
     public void Hit(Brick brick)
     {
         this.score += brick.Point;
         UpdateScoreUI();
+
         if(Cleared())
         {
             LevelLoad(this.level + 1);
@@ -66,6 +79,9 @@ public class GameManager : MonoBehaviour
 
     private bool Cleared()
     {
+        if(this.bricks == null) return 
+        false;
+
        for (int i = 0; i < this.bricks.Length; i++)
         {
             if(this.bricks[i].gameObject.activeInHierarchy && !this.bricks[i].unbreakable)
