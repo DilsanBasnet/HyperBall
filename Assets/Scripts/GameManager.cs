@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     public Brick[] bricks { get; private set;}
 
     public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI livesText;
  private void Awake()
     {
        if(Instance != null && Instance != this)
@@ -38,6 +39,7 @@ public class GameManager : MonoBehaviour
        
 
        UpdateScoreUI();
+       UpdateLivesUI();
     }
 
     private void GameNew()
@@ -51,6 +53,7 @@ public class GameManager : MonoBehaviour
     private void LevelLoad(int level)
     {
         this.level = level;
+        this.lifes = 3;
         SceneManager.LoadScene("Level" + level);
     }
     private void OnLoadedLevel(Scene scene, LoadSceneMode mode)
@@ -81,6 +84,18 @@ public class GameManager : MonoBehaviour
         }
     
     }
+    private void UpdateLivesUI()
+    {
+        if(this.livesText == null)
+        {
+            this.livesText = GameObject.Find("LivesText")?.GetComponent<TextMeshProUGUI>();
+
+        }
+        if(this.livesText != null)
+        {
+            this.livesText.text = "Lives: " + this.lifes;
+        }
+    }
 
     private bool Cleared()
     {
@@ -101,6 +116,7 @@ public class GameManager : MonoBehaviour
     public void Death()
     {
         this.lifes--;
+        UpdateLivesUI();
 
         if(lifes > 0)
         {
