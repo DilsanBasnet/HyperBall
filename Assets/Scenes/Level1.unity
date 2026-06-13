@@ -376,6 +376,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c517601e9eb64f41844bfd06efa6b13, type: 3}
+--- !u!114 &83037216 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1213684610992899882, guid: 03657b9e5215daf48a6df8f5ebf402e5, type: 3}
+  m_PrefabInstance: {fileID: 316590994}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!4 &154538556 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4483384197379516182, guid: 9c517601e9eb64f41844bfd06efa6b13, type: 3}
@@ -1060,10 +1071,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1213684610992899882, guid: 03657b9e5215daf48a6df8f5ebf402e5, type: 3}
+      propertyPath: m_text
+      value: 'Lives : 3'
+      objectReference: {fileID: 0}
     - target: {fileID: 3021932680150813376, guid: 03657b9e5215daf48a6df8f5ebf402e5, type: 3}
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 6730156594971217445, guid: 03657b9e5215daf48a6df8f5ebf402e5, type: 3}
+      propertyPath: livesText
+      value: 
+      objectReference: {fileID: 83037216}
     - target: {fileID: 8160563743399468694, guid: 03657b9e5215daf48a6df8f5ebf402e5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
