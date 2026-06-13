@@ -15,6 +15,9 @@ public class GameManager : MonoBehaviour
 
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI livesText;
+
+    public Sprite SelectPaddleSprite { get; set;}
+    public Sprite SelectBallSprite { get; set;}
  private void Awake()
     {
        if(Instance != null && Instance != this)
@@ -40,15 +43,29 @@ public class GameManager : MonoBehaviour
 
        UpdateScoreUI();
        UpdateLivesUI();
+       CustomSkins() ;
     }
 
-    private void GameNew()
+    public void GameNew()
     {
         this.score = 0;
         this.lifes = 3;
         UpdateScoreUI();
         LevelLoad(1);
 
+    }
+    private void  CustomSkins()
+    {
+        if(this.paddle != null && SelectPaddleSprite != null)
+        {
+            SpriteRenderer paddleRender = this.paddle.GetComponent<SpriteRenderer>();
+            if(paddleRender != null) paddleRender.sprite = SelectPaddleSprite;
+        }
+        if(this.ball != null && SelectBallSprite != null)
+        {
+            SpriteRenderer ballRender = this.ball.GetComponent<SpriteRenderer>();
+            if(ballRender != null) ballRender.sprite = SelectBallSprite;
+        }
     }
     private void LevelLoad(int level)
     {

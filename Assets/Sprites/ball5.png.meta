@@ -5,15 +5,6 @@ TextureImporter:
   - first:
       213: 852457096184536901
     second: ball5_0
-  - first:
-      213: -3665800213809038505
-    second: ball5_1
-  - first:
-      213: 876146729963359791
-    second: ball5_2
-  - first:
-      213: 1200888797528406716
-    second: ball5_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -125,10 +116,10 @@ TextureImporter:
       name: ball5_0
       rect:
         serializedVersion: 2
-        x: 168
-        y: 210
-        width: 6
-        height: 10
+        x: 1
+        y: 12
+        width: 239
+        height: 230
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -139,72 +130,6 @@ TextureImporter:
       bones: []
       spriteID: 54f1754663984db00800000000000000
       internalID: 852457096184536901
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ball5_1
-      rect:
-        serializedVersion: 2
-        x: 191
-        y: 209
-        width: 26
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 75b7c56b026702dc0800000000000000
-      internalID: -3665800213809038505
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ball5_2
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 17
-        width: 185
-        height: 186
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f2e06921fc2b82c00800000000000000
-      internalID: 876146729963359791
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ball5_3
-      rect:
-        serializedVersion: 2
-        x: 191
-        y: 196
-        width: 20
-        height: 9
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: cba3d6faff96aa010800000000000000
-      internalID: 1200888797528406716
       vertices: []
       indices: 
       edges: []
@@ -224,9 +149,6 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       ball5_0: 852457096184536901
-      ball5_1: -3665800213809038505
-      ball5_2: 876146729963359791
-      ball5_3: 1200888797528406716
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

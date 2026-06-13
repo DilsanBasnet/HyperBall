@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: e8f32b0e5be5a7749b18774a7cda72f7
+guid: 7ca6d6ed292fdb14bb319c3f6efb86a4
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7997733998632710447
-    second: ball8_0
+      213: 1145771822964052137
+    second: selectball_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ball8_0
+      name: selectball_0
       rect:
         serializedVersion: 2
-        x: 30
+        x: 0
         y: 0
-        width: 192
-        height: 192
+        width: 642
+        height: 170
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f21319ca2b8adfe60800000000000000
-      internalID: 7997733998632710447
+      spriteID: 9a09c65076996ef00800000000000000
+      internalID: 1145771822964052137
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      ball8_0: 7997733998632710447
+      selectball_0: 1145771822964052137
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
