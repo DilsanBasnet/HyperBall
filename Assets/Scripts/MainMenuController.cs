@@ -24,15 +24,25 @@ public class MainMenuController : MonoBehaviour
         paddleSkinPanel.SetActive(false);
 
     }
+
+    public void ClosePanels()
+    {
+        if(paddleSkinPanel != null) paddleSkinPanel.SetActive(false);
+        if(ballSkinPanel != null) ballSkinPanel.SetActive(false);
+    }
     public void SelectPaddleSkin(Sprite paddleSprite)
     {
         CheckForGameManager();
         GameManager.Instance.SelectPaddleSprite = paddleSprite; 
+
+        ClosePanels();
     }
     public void SelectBallSkin(Sprite ballSprite)
     {
         CheckForGameManager();
         GameManager.Instance.SelectBallSprite = ballSprite;
+
+        ClosePanels();
     }
    private void CheckForGameManager()
     {

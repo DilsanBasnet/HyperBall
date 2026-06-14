@@ -39,8 +39,8 @@ public class GameManager : MonoBehaviour
        this.paddle = FindAnyObjectByType<PlayerPaddle>();
        this.ball = FindAnyObjectByType<Ball>();
        this.bricks = FindObjectsByType<Brick>(FindObjectsInactive.Exclude);
-       
 
+       ToggleGamePlayCanvas();
        UpdateScoreUI();
        UpdateLivesUI();
        CustomSkins() ;
@@ -51,8 +51,27 @@ public class GameManager : MonoBehaviour
         this.score = 0;
         this.lifes = 3;
         UpdateScoreUI();
+        UpdateLivesUI();
         LevelLoad(1);
 
+    }
+
+    private void ToggleGamePlayCanvas()
+    {
+        Canvas myCanvas = this.GetComponentInChildren<Canvas>();
+
+        if(myCanvas != null)
+        {
+            if(SceneManager.GetActiveScene().name == "MainMenuScene")
+            {
+                myCanvas.enabled = false;
+
+            }
+            else
+            {
+                myCanvas.enabled = true;
+            }
+        }
     }
     private void  CustomSkins()
     {
