@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using Unity.VisualScripting;
 
 public class GameManager : MonoBehaviour
 {
@@ -75,17 +76,49 @@ public class GameManager : MonoBehaviour
     }
     private void  CustomSkins()
     {
-        if(this.paddle != null && SelectPaddleSprite != null)
+        if(this.paddle != null)
         {
             SpriteRenderer paddleRender = this.paddle.GetComponent<SpriteRenderer>();
-            if(paddleRender != null) paddleRender.sprite = SelectPaddleSprite;
-        }
-        if(this.ball != null && SelectBallSprite != null)
-        {
-            SpriteRenderer ballRender = this.ball.GetComponent<SpriteRenderer>();
-            if(ballRender != null) ballRender.sprite = SelectBallSprite;
-        }
-    }
+            BoxCollider2D paddleCollider = this.paddle.GetComponent<BoxCollider2D>();
+
+            if(SelectPaddleSprite != null && paddleRender != null)
+            {
+                paddleRender.sprite = SelectPaddleSprite;
+                this.paddle.transform.localScale = new Vector3(1.2f, 0.8f, 1f);
+
+            }
+            else
+            {
+                 this.paddle.transform.localScale = new Vector3(0.55f, 0.4f, 0.52f);
+            }
+           
+             if(paddleRender != null && paddleCollider != null)
+            {
+                paddleCollider.size = paddleRender.localBounds.size;
+            }
+            if(this.ball != null )
+            {
+                SpriteRenderer ballRender = this.ball.GetComponent<SpriteRenderer>();
+                CircleCollider2D ballCollider = this.ball.GetComponent<CircleCollider2D>();
+
+                if(SelectBallSprite != null & ballRender != null)
+                {
+                    ballRender.sprite = SelectBallSprite;
+                    this.ball.transform.localScale = new Vector3(0.35f, 0.35f, 1f);
+
+                }
+                else
+                {
+                    this.ball.transform.localScale = new Vector3(0.34f, 0.34f, 1f);
+                }
+                
+
+             if(ballRender != null && ballCollider != null)
+                {
+                    ballCollider.radius = ballRender.localBounds.extents.x;
+                }
+            }
+        }}
     private void LevelLoad(int level)
     {
         this.level = level;
