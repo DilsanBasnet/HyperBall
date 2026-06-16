@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
-using Unity.VisualScripting;
+
 
 public class GameManager : MonoBehaviour
 {
@@ -41,6 +41,9 @@ public class GameManager : MonoBehaviour
        this.ball = FindAnyObjectByType<Ball>();
        this.bricks = FindObjectsByType<Brick>(FindObjectsInactive.Exclude);
 
+       if(this.paddle != null) this.paddle.gameObject.SetActive(true);
+       if(this.ball != null) this.ball.gameObject.SetActive(true);
+
        ToggleGamePlayCanvas();
        UpdateScoreUI();
        UpdateLivesUI();
@@ -54,6 +57,7 @@ public class GameManager : MonoBehaviour
         UpdateScoreUI();
         UpdateLivesUI();
         LevelLoad(1);
+        
 
     }
 
@@ -84,41 +88,53 @@ public class GameManager : MonoBehaviour
             if(SelectPaddleSprite != null && paddleRender != null)
             {
                 paddleRender.sprite = SelectPaddleSprite;
-                this.paddle.transform.localScale = new Vector3(1.2f, 0.8f, 1f);
-
-            }
-            else
+    
+             if(SelectPaddleSprite.name == "paddle" || SelectPaddleSprite.name ==  "Default")
             {
-                 this.paddle.transform.localScale = new Vector3(0.55f, 0.4f, 0.52f);
+                this.paddle.transform.localScale = new Vector3(0.55f, 0.4f, 1f);
             }
-           
-             if(paddleRender != null && paddleCollider != null)
+        
+        else
+         {
+            this.paddle.transform.localScale = new Vector3(0.65f, 0.45f, 1f);
+        }
+        if(paddleCollider != null)
             {
                 paddleCollider.size = paddleRender.localBounds.size;
-            }
+            }}
+            else
+        {
+            this.paddle.transform.localScale = new Vector3(0.55f, 0.4f, 1f);
+        }}
+
             if(this.ball != null )
             {
                 SpriteRenderer ballRender = this.ball.GetComponent<SpriteRenderer>();
                 CircleCollider2D ballCollider = this.ball.GetComponent<CircleCollider2D>();
 
-                if(SelectBallSprite != null & ballRender != null)
+                if(SelectBallSprite != null && ballRender != null)
                 {
                     ballRender.sprite = SelectBallSprite;
-                    this.ball.transform.localScale = new Vector3(0.35f, 0.35f, 1f);
-
+                
+             if (SelectBallSprite.name == "ball" || SelectBallSprite.name == "DefaultBall")
+                {
+                    this.ball.transform.localScale = new Vector3(0.31f, 0.31f, 1f);
                 }
                 else
-                {
-                    this.ball.transform.localScale = new Vector3(0.34f, 0.34f, 1f);
-                }
-                
-
-             if(ballRender != null && ballCollider != null)
+            {
+                this.ball.transform.localScale = new Vector3(0.48f, 0.48f, 1f);
+            }
+            if(ballCollider != null)
                 {
                     ballCollider.radius = ballRender.localBounds.extents.x;
                 }
-            }
-        }}
+                }
+                else
+                {
+                    this.ball.transform.localScale = new Vector3(0.31f, 0.31f, 1f);
+                }
+            }}
+        
     private void LevelLoad(int level)
     {
         this.level = level;
