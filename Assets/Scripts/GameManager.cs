@@ -91,12 +91,12 @@ public class GameManager : MonoBehaviour
     
              if(SelectPaddleSprite.name == "paddle" || SelectPaddleSprite.name ==  "Default")
             {
-                this.paddle.transform.localScale = new Vector3(0.55f, 0.4f, 1f);
+                this.paddle.transform.localScale = new Vector3(0.6f, 0.4f, 1f);
             }
         
         else
          {
-            this.paddle.transform.localScale = new Vector3(0.65f, 0.45f, 1f);
+            this.paddle.transform.localScale = new Vector3(0.6f, 0.4f, 1f);
         }
         if(paddleCollider != null)
             {
@@ -104,7 +104,7 @@ public class GameManager : MonoBehaviour
             }}
             else
         {
-            this.paddle.transform.localScale = new Vector3(0.55f, 0.4f, 1f);
+            this.paddle.transform.localScale = new Vector3(0.6f, 0.4f, 1f);
         }}
 
             if(this.ball != null )
@@ -122,7 +122,7 @@ public class GameManager : MonoBehaviour
                 }
                 else
             {
-                this.ball.transform.localScale = new Vector3(0.48f, 0.48f, 1f);
+                this.ball.transform.localScale = new Vector3(0.32f, 0.32f, 1f);
             }
             if(ballCollider != null)
                 {
