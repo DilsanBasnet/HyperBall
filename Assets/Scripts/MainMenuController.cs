@@ -24,11 +24,10 @@ public class MainMenuController : MonoBehaviour
         paddleSkinPanel.SetActive(false);
 
     }
-
     public void ClosePanels()
     {
-        if(paddleSkinPanel != null) paddleSkinPanel.SetActive(false);
         if(ballSkinPanel != null) ballSkinPanel.SetActive(false);
+        if(paddleSkinPanel != null) paddleSkinPanel.SetActive(false);
     }
     public void SelectPaddleSkin(Sprite paddleSprite)
     {

@@ -212,10 +212,14 @@ public class GameManager : MonoBehaviour
             GameOver();
         }
     }
+    
+    
+    
+
     private void ResetLevel()
     {
-        this.ball.ResetBall();
         this.paddle.ResetPaddle();
+        this.ball.ResetBall();
     }
     private void GameOver()
     {
