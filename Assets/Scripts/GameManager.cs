@@ -91,7 +91,7 @@ public class GameManager : MonoBehaviour
     
              if(SelectPaddleSprite.name == "paddle" || SelectPaddleSprite.name ==  "Default")
             {
-                this.paddle.transform.localScale = new Vector3(0.6f, 0.4f, 1f);
+                this.paddle.transform.localScale = new Vector3(0.9f, 0.5f, 1f);
             }
         
         else
