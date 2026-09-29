@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.InputSystem;
 
 
 public class GameManager : MonoBehaviour
@@ -16,6 +17,9 @@ public class GameManager : MonoBehaviour
 
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI livesText;
+
+    public GameObject pausePanel;
+    public bool isPaused {get; private set;} = false;
 
     public Sprite SelectPaddleSprite { get; set;}
     public Sprite SelectBallSprite { get; set;}
@@ -35,8 +39,61 @@ public class GameManager : MonoBehaviour
     {
         FindSceneComponents();
     }
+
+    private void Update()
+    {
+        string currentScene = SceneManager.GetActiveScene().name;
+        if(currentScene != "MainMenuScene" && currentScene != "GameOver")
+        {
+            if(Keyboard.current != null && Keyboard.current.escapeKey.wasPressedThisFrame)
+            {
+                if(isPaused )
+                {
+                    ResumeGame();
+                }
+                 else
+                {
+                    PauseGame();
+                }
+            }
+        }
+    }
+
+    public void PauseGame()
+    {
+        isPaused = true;
+        Time.timeScale = 0f;
+
+        if(pausePanel != null)
+        {
+            pausePanel.SetActive(true);
+        }
+    }
+
+    public void ResumeGame()
+    {
+       isPaused = false;
+       Time.timeScale = 1f;
+
+       if(pausePanel != null)
+        {
+            pausePanel.SetActive(false);
+        } 
+    }
+
+    public void ExitGame()
+    {
+        Time.timeScale = 1f;
+        Debug.Log("Game Exit ,  Play Again ..");
+        Application.Quit();
+    }
+
     private void FindSceneComponents()
     {
+
+        Time.timeScale = 1f;
+        isPaused = false;
+
        this.paddle = FindAnyObjectByType<PlayerPaddle>();
        this.ball = FindAnyObjectByType<Ball>();
        this.bricks = FindObjectsByType<Brick>(FindObjectsInactive.Exclude);
@@ -48,6 +105,11 @@ public class GameManager : MonoBehaviour
        UpdateScoreUI();
        UpdateLivesUI();
        CustomSkins() ;
+
+       if(pausePanel != null)
+        {
+            pausePanel.SetActive(false);
+        }
     }
 
     public void GameNew()
@@ -106,6 +168,7 @@ public class GameManager : MonoBehaviour
         {
             this.paddle.transform.localScale = new Vector3(0.6f, 0.4f, 1f);
         }}
+
 
             if(this.ball != null )
             {
