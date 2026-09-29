@@ -10,4 +10,9 @@ public class DeathZone : MonoBehaviour
         }
     }
 
+    public void TriggerGameOver()
+    {
+        AudioManagerScript.Instance.PlaySFX(AudioManagerScript.Instance.gameOverClip);
+    }
+
 }

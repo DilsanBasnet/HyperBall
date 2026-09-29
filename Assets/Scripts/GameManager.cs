@@ -286,6 +286,11 @@ public class GameManager : MonoBehaviour
     }
     private void GameOver()
     {
+        if(AudioManagerScript.Instance != null)
+        {
+            AudioManagerScript.Instance.PlaySFX(AudioManagerScript.Instance.gameOverClip);
+        }
+        Time.timeScale = 1f;
         SceneManager.LoadScene("GameOver");
     }
     

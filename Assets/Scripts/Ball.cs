@@ -33,4 +33,16 @@ public class Ball : MonoBehaviour
         Invoke(nameof(RandomDelay), 1f);
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.CompareTag("Paddle"))
+        {
+            AudioManagerScript.Instance.PlaySFX(AudioManagerScript.Instance.paddleHitClip);
+        }
+        else if (collision.gameObject.CompareTag("Brick"))
+        {
+            AudioManagerScript.Instance.PlaySFX(AudioManagerScript.Instance.brickHitClip);
+        }
+    }
+
 }
